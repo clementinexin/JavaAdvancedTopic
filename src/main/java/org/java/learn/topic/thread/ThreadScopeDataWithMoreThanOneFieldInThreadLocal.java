@@ -1,4 +1,4 @@
-package org.java.learn.topic;
+package org.java.learn.topic.thread;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.java.learn.topic;
+package org.java.learn.topic.thread;
 
 public class ThreadLocalData {
 	
