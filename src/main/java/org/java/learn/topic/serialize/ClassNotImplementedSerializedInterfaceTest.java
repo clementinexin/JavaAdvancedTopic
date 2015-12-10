@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.travelsky.tsb.tlh.TOSFMessage;
 
  /**
  * ClassName: ClassNotImplementedSerializedInterfaceTest <br>
@@ -35,7 +34,7 @@ import com.travelsky.tsb.tlh.TOSFMessage;
 public class ClassNotImplementedSerializedInterfaceTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        TOSFMessage message = new TOSFMessage();
+        ClassNotImplementSerializableInterface message = new ClassNotImplementSerializableInterface();
         message.appData = "Hello";
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         ObjectOutputStream out = new ObjectOutputStream(os);

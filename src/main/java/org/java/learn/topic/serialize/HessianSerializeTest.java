@@ -15,7 +15,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import com.caucho.hessian.io.HessianOutput;
-import com.travelsky.tsb.tlh.TOSFMessage;
 
  /**
  * ClassName: HessianSerializeTest <br>
@@ -33,7 +32,7 @@ import com.travelsky.tsb.tlh.TOSFMessage;
 public class HessianSerializeTest {
 
     public static void main(String[] args) throws IOException {
-        TOSFMessage message = new TOSFMessage();
+        ClassNotImplementSerializableInterface message = new ClassNotImplementSerializableInterface();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         
         HessianOutput ho = new HessianOutput(os);
