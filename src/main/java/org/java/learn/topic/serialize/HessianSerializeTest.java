@@ -33,6 +33,7 @@ public class HessianSerializeTest {
 
     public static void main(String[] args) throws IOException {
         ClassNotImplementSerializableInterface message = new ClassNotImplementSerializableInterface();
+
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         
         HessianOutput ho = new HessianOutput(os);

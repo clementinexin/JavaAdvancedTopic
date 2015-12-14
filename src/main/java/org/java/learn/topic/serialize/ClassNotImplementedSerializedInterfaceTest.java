@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
  /**
  * ClassName: ClassNotImplementedSerializedInterfaceTest <br>
  * Description: Exception in thread "main" java.io.NotSerializableException: com.travelsky.tsb.tlh.TOSFMessage <br>
