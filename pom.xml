@@ -1,15 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.java.learn.topic</groupId>
-	<artifactId>Java-Exercise</artifactId>
+	<artifactId>exercise</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>Java-Exercise</name>
 	<url>http://maven.apache.org</url>
 
+	<modules>
+		<module>lombok</module>
+		<module>SpringBootWithDataRestExample</module>
+	</modules>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.6</maven.compiler.target>
@@ -31,12 +37,38 @@
 	</build>
 
 	<dependencies>
+
+
 		<dependency>
-			<groupId>com.travelsky.tsb.tlh</groupId>
-			<artifactId>MPEInterface</artifactId>
-			<version>3.0.3.BLUE</version>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>0.9.0.0</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>2.2.1.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>2.2.1.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.caucho</groupId>
 			<artifactId>hessian</artifactId>
@@ -157,4 +189,5 @@
 			<version>11.2.0.1.0</version>
 		</dependency>
 	</dependencies>
+  
 </project>
