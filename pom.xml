@@ -46,4 +46,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<modules>
+		<module>RPCExample</module>
+	</modules>
 </project>
