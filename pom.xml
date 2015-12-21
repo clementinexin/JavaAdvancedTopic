@@ -48,5 +48,7 @@
 	</dependencies>
 	<modules>
 		<module>RPCExample</module>
+		<module>lombok</module>
+		<module>SpringBootWithDataRestExample</module>
 	</modules>
 </project>
