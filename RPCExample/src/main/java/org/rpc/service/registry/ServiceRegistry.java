@@ -1,5 +1,13 @@
 package org.rpc.service.registry;
 
+import org.apache.zookeeper.*;
+import org.rpc.service.Constant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+
 public class ServiceRegistry {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRegistry.class);
@@ -33,7 +41,9 @@ public class ServiceRegistry {
                 }
             });
             latch.await();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
+            LOGGER.error("", e);
+        } catch (InterruptedException e) {
             LOGGER.error("", e);
         }
         return zk;
@@ -44,7 +54,9 @@ public class ServiceRegistry {
             byte[] bytes = data.getBytes();
             String path = zk.create(Constant.ZK_DATA_PATH, bytes, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             LOGGER.debug("create zookeeper node ({} => {})", path, data);
-        } catch (KeeperException | InterruptedException e) {
+        } catch (KeeperException e) {
+            LOGGER.error("", e);
+        } catch (InterruptedException e) {
             LOGGER.error("", e);
         }
     }

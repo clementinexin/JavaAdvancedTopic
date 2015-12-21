@@ -1,12 +1,26 @@
 package org.rpc.service.discovery;
 
+import io.netty.util.internal.ThreadLocalRandom;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.ZooKeeper;
+import org.rpc.service.Constant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+
 public class ServiceDiscovery {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceDiscovery.class);
 
     private CountDownLatch latch = new CountDownLatch(1);
 
-    private volatile List<String> dataList = new ArrayList<>();
+    private volatile List<String> dataList = new ArrayList<String>();
 
     private String registryAddress;
 
@@ -46,7 +60,9 @@ public class ServiceDiscovery {
                 }
             });
             latch.await();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
+            LOGGER.error("", e);
+        } catch (InterruptedException e) {
             LOGGER.error("", e);
         }
         return zk;
@@ -62,14 +78,16 @@ public class ServiceDiscovery {
                     }
                 }
             });
-            List<String> dataList = new ArrayList<>();
+            List<String> dataList = new ArrayList<String>();
             for (String node : nodeList) {
                 byte[] bytes = zk.getData(Constant.ZK_REGISTRY_PATH + "/" + node, false, null);
                 dataList.add(new String(bytes));
             }
             LOGGER.debug("node data: {}", dataList);
             this.dataList = dataList;
-        } catch (KeeperException | InterruptedException e) {
+        } catch (KeeperException e) {
+            LOGGER.error("", e);
+        } catch (InterruptedException e) {
             LOGGER.error("", e);
         }
     }
