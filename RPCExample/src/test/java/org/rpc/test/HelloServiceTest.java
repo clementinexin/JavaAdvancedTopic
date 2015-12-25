@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring-server.xml")
+@ContextConfiguration(locations = "classpath:spring-client.xml")
 public class HelloServiceTest {
 
     @Autowired

@@ -47,7 +47,12 @@ public class RpcProxy {
                         int port = Integer.parseInt(array[1]);
 
                         RpcClient client = new RpcClient(host, port); // 初始化 RPC 客户端
-                        RpcResponse response = client.send(request); // 通过 RPC 客户端发送 RPC 请求并获取 RPC 响应
+                        RpcResponse response = null; // 通过 RPC 客户端发送 RPC 请求并获取 RPC 响应
+                        try {
+                            response = client.send(request);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         if (response.getError() instanceof Throwable) {
                             throw response.getError();

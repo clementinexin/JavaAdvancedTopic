@@ -60,6 +60,14 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
                 .option(ChannelOption.SO_KEEPALIVE, true);
 
             ChannelFuture future = bootstrap.connect(host, port).sync();
+            future.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (!future.isSuccess()) {
+                        // TODO 连接失败
+                    }
+                }
+            });
             future.channel().writeAndFlush(request).sync();
 
             synchronized (obj) {

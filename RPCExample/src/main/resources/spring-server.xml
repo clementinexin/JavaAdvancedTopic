@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="org.rpc.service.server"/>
+    <context:component-scan base-package="org.rpc.service.impl"/>
 
-    <context:property-placeholder location="classpath:config.properties"/>
+    <context:property-placeholder location="classpath:config-server.properties"/>
 
     <!-- 配置服务注册组件 -->
     <bean id="serviceRegistry" class="org.rpc.service.registry.ServiceRegistry">
