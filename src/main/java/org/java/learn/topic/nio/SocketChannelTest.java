@@ -21,14 +21,20 @@ public class SocketChannelTest {
 
         try {
             SocketChannel socketChannel = SocketChannel.open();
-            socketChannel.connect(new InetSocketAddress("localhost",9999));
+            socketChannel.connect(new InetSocketAddress("localhost",8888));
+            socketChannel.configureBlocking(false);
+            while (!socketChannel.finishConnect()) {
+                Thread.sleep(1000);
+            }
             ByteBuffer out = ByteBuffer.allocate(1024);
             out.clear();
-            out.put("exit".getBytes());
+            out.put("input".getBytes());
             out.flip();
             System.out.println(socketChannel.write(out));
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
