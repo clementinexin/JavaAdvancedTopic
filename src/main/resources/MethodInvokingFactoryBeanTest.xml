@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="objectGetByStaticMethod" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+              <property name="staticMethod" value="org.java.learn.topic.spring.core.UserFactory.setUserByName"/>
+              <property name="arguments">
+                     <value>zhangsan</value>
+              </property>
+       </bean>
+
+       <bean id="userFactory" class="org.java.learn.topic.spring.core.UserFactory"/>
+
+       <bean id ="objectGetByMethod" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+              <property name="targetMethod" value="getUserByName"/>
+              <property name="targetObject" ref="userFactory"/>
+              <property name="arguments" >
+                     <value>lisi</value>
+              </property>
+       </bean>
+</beans>
