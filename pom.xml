@@ -209,5 +209,6 @@
 		<module>RPCExample</module>
 		<module>lombok</module>
 		<module>SpringBootWithDataRestExample</module>
+		<module>mybatisexample</module>
 	</modules>
 </project>
