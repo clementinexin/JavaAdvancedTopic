@@ -1,4 +1,4 @@
-package org.java.learn.topic.designpattern.observable.org.java.learn.topic.designpattern.observableinjdk;
+package org.java.learn.topic.designpattern.observableinjdk;
 
 import java.util.Observable;
 
