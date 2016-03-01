@@ -212,5 +212,6 @@
 		<module>mybatisexample</module>
 		<module>SpringShellDemo</module>
 		<module>KotlinExample</module>
+		<module>JGroupsDemo</module>
 	</modules>
 </project>
