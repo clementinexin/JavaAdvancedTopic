@@ -5,6 +5,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DaiJia on 2016/2/28.
@@ -65,7 +67,22 @@ public class User {
          */
         String statement = "mapper.userMapper.getUser";//映射sql的标识字符串
         //执行查询返回一个唯一user对象的sql
-        User user = session.selectOne(statement, 1);
-        System.out.println(user);
+//        User user = session.selectOne(statement, 1);
+        List<User> list = new ArrayList<User>();
+        User user1 = new User();
+        user1.setId(1001);
+        user1.setAge(31);
+        user1.setName("zhangsan");
+        list.add(user1);
+
+        User user2 = new User();
+        user2.setId(1002);
+        user2.setAge(32);
+        user2.setName("lisi");
+        list.add(user2);
+
+        System.out.println(session.insert("mapper.userMapper.batchSave", list));
+        session.commit();
+//        System.out.println(user);
     }
 }

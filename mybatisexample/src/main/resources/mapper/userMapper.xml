@@ -16,4 +16,12 @@
             resultType="org.mybatis.example.model.User">
         select * from users where id=#{id}
     </select>
+
+    <select id="batchSave" parameterType="java.util.List">
+        INSERT INTO USERS (ID,NAME ,AGE) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.name},#{item.age})
+        </foreach>
+    </select>
+
 </mapper>
