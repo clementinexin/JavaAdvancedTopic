@@ -1,4 +1,4 @@
-package org.java.learn.topic.groovy
+package groovy
 
 class XmlBuilder {
     def out

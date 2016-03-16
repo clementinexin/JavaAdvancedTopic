@@ -9,7 +9,7 @@
  * Date:2015年11月26日 上午11:26:32
  * 
  */
-package org.java.learn.topic.groovy
+package groovy
 
 import groovy.swing.SwingBuilder
 import java.awt.BorderLayout

@@ -9,7 +9,7 @@
  * Date:2015年11月26日 上午11:04:32
  * 
  */
-package org.java.learn.topic.groovy
+package groovy
 
  /**
  * ClassName: HelloGroovy <br>
