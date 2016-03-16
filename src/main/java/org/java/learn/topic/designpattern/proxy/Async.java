@@ -1,5 +1,10 @@
 package org.java.learn.topic.designpattern.proxy;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * ClassName: Async <br/>
  * Description: TODO <br/>
@@ -11,6 +16,8 @@ package org.java.learn.topic.designpattern.proxy;
  *         修改记录
  * @version v1.0.1 2016-03-15 jdai@ created. <br/>
  */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
 public @interface Async {
 
     String threadPoolName = "";

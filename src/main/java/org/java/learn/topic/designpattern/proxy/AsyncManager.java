@@ -1,5 +1,7 @@
 package org.java.learn.topic.designpattern.proxy;
 
+import org.springframework.stereotype.Component;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -14,6 +16,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  *         修改记录
  * @version v1.0.1 2016-03-15 jdai@ created. <br/>
  */
+@Component
 public class AsyncManager {
 
     private int depth = 100;
@@ -30,11 +33,14 @@ public class AsyncManager {
                 @Override
                 public void run() {
                     while (true) {
+                        AsyncTask task = null;
                         try {
-                            tasks.take().doAsync();
+                            task = tasks.take();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        if (task != null)
+                            task.doAsync();
                     }
                 }
             }).start();
