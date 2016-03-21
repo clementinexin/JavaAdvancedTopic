@@ -1,4 +1,4 @@
-package main.java.org.java.learn.topic.designpattern.visitor;
+package org.java.learn.topic.designpattern.visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,9 @@ public class ObjectStructure {
 
     public static List<Element> get() {
         List<Element> elements = new ArrayList<Element>();
+        Random random = new Random(10);
         for (int i = 0;i < 10;i ++) {
-            int r = new Random(10).nextInt();
+            int r = random.nextInt();
             if (r < 5) elements.add(new ElementA());
             else elements.add(new ElementB());
         }

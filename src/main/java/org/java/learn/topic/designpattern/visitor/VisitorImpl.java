@@ -1,4 +1,4 @@
-package main.java.org.java.learn.topic.designpattern.visitor;
+package org.java.learn.topic.designpattern.visitor;
 
 /**
  * ClassName: VisitorA <br/>
