@@ -19,9 +19,10 @@ public class ObjectStructure {
 
     public static List<Element> get() {
         List<Element> elements = new ArrayList<Element>();
-        Random random = new Random(10);
+        Random random = new Random();
         for (int i = 0;i < 10;i ++) {
-            int r = random.nextInt();
+            int r = random.nextInt(10);
+            System.out.println(r);
             if (r < 5) elements.add(new ElementA());
             else elements.add(new ElementB());
         }
