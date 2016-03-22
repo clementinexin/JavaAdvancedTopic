@@ -239,5 +239,7 @@
 		<module>KotlinExample</module>
 		<module>JGroupsDemo</module>
 		<module>GroovyExample</module>
+		<module>CacheByAopDemo</module>
+		<module>JpaByAopDemo</module>
 	</modules>
 </project>
