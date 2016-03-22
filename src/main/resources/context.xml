@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd"
+        default-lazy-init="false">
+
+       <!--<context:component-scan base-package="org.java.learn.topic.designpattern.proxy"/>-->
+
+       <bean class="org.java.learn.topic.designpattern.proxy.AsyncAnnotationProcessor"/>
+       <bean id="asyncManager" class="org.java.learn.topic.designpattern.proxy.AsyncManager"/>
+       <bean id="asyncLogicImpl" class="org.java.learn.topic.designpattern.proxy.AsyncLogicImpl"/>
+
+       <aop:aspectj-autoproxy/>
+
+       <bean id="proxy" class="org.java.learn.topic.designpattern.proxy.AsyncProxy">
+              <property name="asyncManager" ref="asyncManager"/>
+       </bean>
+
+       <aop:config>
+              <aop:pointcut id="pointcut" expression="@annotation(org.java.learn.topic.designpattern.proxy.Async)"/>
+              <aop:aspect ref="proxy">
+                     <aop:around method="aroundRunning" pointcut-ref="pointcut"/>
+              </aop:aspect>
+       </aop:config>
+
+</beans>
