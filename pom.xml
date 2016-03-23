@@ -241,5 +241,7 @@
 		<module>GroovyExample</module>
 		<module>CacheByAopDemo</module>
 		<module>JpaByAopDemo</module>
+		<module>CucumberDemo</module>
+		<module>SpringExample</module>
 	</modules>
 </project>
