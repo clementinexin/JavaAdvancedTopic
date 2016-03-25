@@ -1,5 +1,6 @@
 package cache;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -21,6 +22,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @Component
 public class Cache<K,V> {
 
+    @Autowired
+    DB db;
+
     static ReadWriteLock rw = new ReentrantReadWriteLock();
 
     private Map<K,V> map = new HashMap<K, V>();
@@ -39,7 +43,7 @@ public class Cache<K,V> {
             rw.readLock().unlock();
             rw.writeLock().lock();
             if (map.get(k) == null) {
-                v = load(k);
+                v = (V) db.load(k);
                 put(k,v);
             }
             rw.writeLock().unlock();
@@ -50,12 +54,6 @@ public class Cache<K,V> {
         }
     }
 
-    private V load(K k) {
-        if (k instanceof Integer) {
-            if ( (Integer)k == 1) return (V)"ONE";
-            if ( (Integer)k == 2) return (V)"TWO";
-        }
-        return (V)"none exists";
-    }
+
 
 }

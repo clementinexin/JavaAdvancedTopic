@@ -1,5 +1,6 @@
 package cache;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,9 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Gateway<K,V> {
 
-    @Cacheable
-    public void put(K k,V v) {
+    @Autowired
+    DB db;
 
+    @Cacheable
+    public V query(K k) {
+
+        return (V) db.load(k);
     }
 
     @Query

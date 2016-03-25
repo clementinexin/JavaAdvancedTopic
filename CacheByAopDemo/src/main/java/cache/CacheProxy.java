@@ -46,10 +46,11 @@ public class CacheProxy {
         Annotation[] annotations = method.getAnnotations();
         for (Annotation annotation : annotations) {
             if (annotation instanceof Cacheable) {
-                if (args.length != 2) {
-                    if (logger.isInfoEnabled()) logger.info(String.format("参数长度%s不为2，不允许Cacheable标签",args.length));
+                if (args.length != 1) {
+                    if (logger.isInfoEnabled()) logger.info(String.format("参数长度%s不为1，不允许Cacheable标签",args.length));
                 }
-                cache.put(args[0],args[1]);
+                Object v = pjp.proceed();
+                cache.put(args[0],v);
                 return null;
             }
 
@@ -60,7 +61,7 @@ public class CacheProxy {
                 return cache.get(args[0]);
             }
         }
-        return pjp.proceed();
+        return null;
     }
 
 }
