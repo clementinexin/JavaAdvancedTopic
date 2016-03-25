@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.httpclient
- * File Name:ClientTest.java
- * Date:2015年12月7日 下午3:33:45
- * 
- */
+
 package org.java.learn.topic.httpclient;
 
 import java.io.IOException;

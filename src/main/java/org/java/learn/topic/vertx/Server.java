@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.vertx
- * File Name:Server.java
- * Date:2015年11月25日 下午4:21:55
- * 
- */
+
 package org.java.learn.topic.vertx;
 
 import org.vertx.java.core.Handler;

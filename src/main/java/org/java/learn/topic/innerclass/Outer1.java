@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:Java-Exercise
- * Package Name:org.java.learn.topic.innerclass
- * File Name:Outer1.java
- * Date:2015年8月24日 上午8:50:08
- * 
- */
+
 package org.java.learn.topic.innerclass;
 
  /**

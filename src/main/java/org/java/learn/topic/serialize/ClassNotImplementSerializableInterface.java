@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.serialize
- * File Name:ClassNotImplementSerializableInterface.java
- * Date:2015年12月10日 下午4:01:06
- * 
- */
+
 package org.java.learn.topic.serialize;
 
  /**

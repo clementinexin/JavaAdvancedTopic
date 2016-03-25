@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.jpa
- * File Name:Person.java
- * Date:2015年9月21日 下午3:54:26
- * 
- */
+
 package org.java.learn.topic.jpa;
 
 import java.io.Serializable;

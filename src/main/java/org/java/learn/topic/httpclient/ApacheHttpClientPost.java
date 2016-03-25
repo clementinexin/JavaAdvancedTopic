@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.httpclient
- * File Name:ApacheHttpClientPost.java
- * Date:2015年12月10日 下午4:20:14
- * 
- */
+
 package org.java.learn.topic.httpclient;
 
 import java.io.BufferedReader;

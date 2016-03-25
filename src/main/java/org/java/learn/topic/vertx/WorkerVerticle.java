@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.vertx
- * File Name:WorkerVerticle.java
- * Date:2015年11月25日 下午5:28:27
- * 
- */
+
 package org.java.learn.topic.vertx;
 
 import java.util.concurrent.ConcurrentMap;
