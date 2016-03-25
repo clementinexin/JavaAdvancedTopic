@@ -233,7 +233,7 @@
 	<modules>
 		<module>RPCExample</module>
 		<module>lombok</module>
-		<module>SpringBootWithDataRestExample</module>
+		<!--<module>SpringBootWithDataRestExample</module>-->
 		<module>mybatisexample</module>
 		<module>SpringShellDemo</module>
 		<module>KotlinExample</module>
