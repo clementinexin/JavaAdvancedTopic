@@ -1,14 +1,4 @@
-/**
- * Copyright (c) 2015,TravelSky. 
- * All Rights Reserved.
- * TravelSky CONFIDENTIAL
- * 
- * Project Name:exercise
- * Package Name:org.java.learn.topic.dubbo
- * File Name:Server.java
- * Date:2015年11月26日 上午11:44:14
- * 
- */
+
 package org.java.learn.topic.dubbo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
