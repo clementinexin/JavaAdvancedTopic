@@ -243,5 +243,7 @@
 		<module>JpaByAopDemo</module>
 		<module>CucumberDemo</module>
 		<module>SpringExample</module>
+		<module>guice-demo</module>
+		<module>how-to-use-guava</module>
 	</modules>
 </project>
