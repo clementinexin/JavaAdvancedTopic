@@ -230,6 +230,23 @@
 
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<uniqueVersion>true</uniqueVersion>
+			<name>Nexus Release Repository</name>
+			<url>http://172.27.11.231:8081/nexus/content/repositories/releases/
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://172.27.11.231:8081/nexus/content/repositories/snapshots/
+			</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+
 	<modules>
 		<module>RPCExample</module>
 		<module>lombok</module>
@@ -245,5 +262,6 @@
 		<module>SpringExample</module>
 		<module>guice-demo</module>
 		<module>how-to-use-guava</module>
+		<module>ejb-demo</module>
 	</modules>
 </project>
