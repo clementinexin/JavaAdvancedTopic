@@ -263,5 +263,6 @@
 		<module>guice-demo</module>
 		<module>how-to-use-guava</module>
 		<module>ejb-demo</module>
+		<module>SpockDemo</module>
 	</modules>
 </project>
