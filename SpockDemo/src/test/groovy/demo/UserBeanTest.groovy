@@ -29,21 +29,11 @@ class UserBeanTest {
                         assert 国家() == 'CN'
                     }
 
-            assert address.city.collect({return it}) == ['PEK',"WUH"]
+
             }
+            assert user.addresses.collect({return it.city}) == ['PEK',"WUH"]
         }
     }
 
-    @Test
-    void "Func"() {
 
-        given:
-            UserBean user = new UserBean()
-        expect:
-            user.func(input) == output
-        where:
-        input | output
-        "zhangsan" | "Hello zhangsan"
-        "lisi"      | "Hello lisi"
-    }
 }
