@@ -265,5 +265,6 @@
 		<module>ejb-demo</module>
 		<module>SpockDemo</module>
 		<module>AMQDemo</module>
+		<module>Lucene-demo</module>
 	</modules>
 </project>
