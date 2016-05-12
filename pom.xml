@@ -249,5 +249,6 @@
 		<module>SpockDemo</module>
 		<module>AMQDemo</module>
 		<module>Lucene-demo</module>
+		<module>JavaDemo</module>
 	</modules>
 </project>
