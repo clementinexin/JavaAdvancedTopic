@@ -250,5 +250,7 @@
 		<module>AMQDemo</module>
 		<module>Lucene-demo</module>
 		<module>JavaDemo</module>
+		<module>redis-demo</module>
+		<module>imagemagick-demo</module>
 	</modules>
 </project>
