@@ -90,20 +90,6 @@ public class SetnxDemo {
                     System.out.println(Thread.currentThread().getName() + " release the lock @ " + new Date().getTime());
                     releaseLock(client);
 
-
-                    /*
-                    Jedis client = pool.getResource();
-                    if (acquireLock(client, LOCK_KEY)) {
-                        System.out.println(Thread.currentThread().getName() + " acquire the lock @ " + new Date().getTime());
-
-                        sum++;
-                    }
-
-                    System.out.println(Thread.currentThread().getName() + " release the lock @ " + new Date().getTime());
-
-                    releaseLock(client, LOCK_KEY);
-                    */
-
                 }
             });
             thread.start();
@@ -115,50 +101,6 @@ public class SetnxDemo {
             e.printStackTrace();
         }
         System.out.println("sum : " + sum);
-    }
-
-    public static boolean acquireLock(Jedis jedis, String lock) {
-        // 1. 通过SETNX试图获取一个lock
-        boolean success = false;
-//        Jedis jedis = pool.getResource();
-        long value = System.currentTimeMillis() + LOCK_TIMEOUT + 1;
-        long acquired = jedis.setnx(lock, String.valueOf(value));
-        //SETNX成功，则成功获取一个锁
-        if (acquired == 1)
-            success = true;
-            //SETNX失败，说明锁仍然被其他对象保持，检查其是否已经超时
-        else {
-            long oldValue = Long.valueOf(jedis.get(lock));
-
-            //超时
-            if (oldValue < System.currentTimeMillis()) {
-                String getValue = jedis.getSet(lock, String.valueOf(value));
-                // 获取锁成功
-                if (Long.valueOf(getValue) == oldValue)
-                    success = true;
-                    // 已被其他进程捷足先登了
-                else
-                    success = false;
-            }
-            //未超时，则直接返回失败
-            else
-                success = false;
-        }
-//        pool.returnResource(jedis);
-        return success;
-    }
-
-    //释放锁
-    public static void releaseLock(Jedis jedis, String lock) {
-//        Jedis jedis = pool.getResource();
-        long current = System.currentTimeMillis();
-        // 避免删除非自己获取得到的锁
-        if (current < Long.valueOf(jedis.get(lock))) {
-
-            jedis.del(lock);
-            jedis.close();
-        }
-//        pool.returnResource(jedis);
     }
 
 
