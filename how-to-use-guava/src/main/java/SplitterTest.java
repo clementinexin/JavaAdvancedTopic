@@ -1,6 +1,10 @@
+import com.google.common.base.Function;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+import com.sun.istack.internal.Nullable;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
@@ -21,9 +25,22 @@ public class SplitterTest {
 
     @Test
     public void test() {
-        Map<String,String> map = Splitter.on("&").omitEmptyStrings().withKeyValueSeparator("=").split("flight=CA1501&dept=PEK");
-        assertThat(2,is(map.size()));
-        assertThat("CA1501",is(map.get("flight")));
-        assertThat("PEK",is(map.get("dept")));
+
+
+        System.out.println(Lists.transform(Lists.newArrayList(Splitter.on(",").omitEmptyStrings().split("2")), new Function<String, Integer>() {
+            @Nullable
+            @Override
+            public Integer apply(@Nullable String input) {
+                return Integer.parseInt(input);
+            }
+        }));
+
+        String ids = "1,2,3";
+        List list = Lists.newArrayList();
+        System.out.println((Splitter.on(",").omitEmptyStrings().split(ids)).toString());
+        Map<String, String> map = Splitter.on("&").omitEmptyStrings().withKeyValueSeparator("=").split("flight=CA1501&dept=PEK");
+        assertThat(2, is(map.size()));
+        assertThat("CA1501", is(map.get("flight")));
+        assertThat("PEK", is(map.get("dept")));
     }
 }
