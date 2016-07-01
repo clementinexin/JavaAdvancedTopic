@@ -17,23 +17,35 @@ class UserBeanTest {
 
     @Test
     void "UseAndWith"() {
-        def user = new UserBean();
-            user.addresses = [new Address(country:"CN",city:"PEK",district:"SY",street:"RH",subdistrict:"ZJ",zipCode:"100100"),
-                              new Address(country:"CN",city:"WUH",district:"QS",street:"GY",subdistrict:"QY",zipCode:"420000")]
+        def user = new UserBean
+                (
+                        addresses
+                                [
+                                        new Address(country: "CN", city: "PEK", district: "SY", street: "RH", subdistrict: "ZJ", zipCode: "100100"),
+                                        new Address(country: "CN", city: "WUH", district: "QS", street: "GY", subdistrict: "QY", zipCode: "420000",
+                                                contacts:
+                                                        [
+                                                                new Contact(telephone: "13123456789", cellphone: "01012345678")
+                                                        ]
+                                        )
+
+                                        ]
+                )
+
+        /*
         assert user.addresses.size().is(2)
+        assert user.addresses[1].contacts.size().is(1)
 
-        use(AssertUtil) {
-            user.addresses.eachWithIndex{ Address address, idx ->
-
-                    address.with {
-                        assert 国家() == 'CN'
-                    }
-
-
+        use(demo.spock.AssertUtil) {
+            user.addresses.eachWithIndex { Address address, idx ->
+                address.with {
+                    assert 国家() == 'CN'
+                }
             }
-            assert user.addresses.collect({return it.city}) == ['PEK',"WUH"]
-        }
-    }
+            assert user.addresses.collect({ return it.city }) == ['PEK', "WUH"]
+        }*/
 
+
+    }
 
 }
