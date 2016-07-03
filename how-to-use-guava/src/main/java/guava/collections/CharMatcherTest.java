@@ -1,3 +1,5 @@
+package guava.collections;
+
 import com.google.common.base.CharMatcher;
 
 /**

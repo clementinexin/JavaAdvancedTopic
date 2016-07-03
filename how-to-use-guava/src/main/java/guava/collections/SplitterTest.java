@@ -1,3 +1,5 @@
+package guava.collections;
+
 import com.google.common.base.Function;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
@@ -11,7 +13,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * ClassName: SplitterTest <br/>
+ * ClassName: guava.collections.SplitterTest <br/>
  * Description: TODO <br/>
  * Date: 2016-03-29 14:59 <br/>
  * <br/>

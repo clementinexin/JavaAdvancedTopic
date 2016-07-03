@@ -1,3 +1,5 @@
+package guava.collections;
+
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -5,7 +7,7 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 /**
- * ClassName: JoinerTest <br/>
+ * ClassName: guava.collections.JoinerTest <br/>
  * Description: TODO <br/>
  * Date: 2016-03-29 14:59 <br/>
  * <br/>
