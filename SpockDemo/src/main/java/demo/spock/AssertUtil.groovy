@@ -1,4 +1,6 @@
-package demo
+package demo.spock
+
+import demo.Address
 
 /**
  * ClassName: AssertUtil <br/>
