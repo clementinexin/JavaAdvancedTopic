@@ -12,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <build>
@@ -23,8 +23,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.0.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -252,12 +252,15 @@
         <module>JavaDemo</module>
         <module>redis-demo</module>
         <module>imagemagick-demo</module>
-        <module>../log4jdemo</module>
+        <module>log4jdemo</module>
         <module>log4jdemo</module>
         <module>mahout-demo</module>
-        <module>../javaslang-demo</module>
+        <module>javaslang-demo</module>
         <module>javaslang-demo</module>
         <module>HelloPlugin</module>
         <module>HelloPluginClient</module>
+        <module>RxJavaDemo</module>
+        <module>RetrofitDemo</module>
+        <module>QuasarDemo</module>
     </modules>
 </project>
