@@ -7,8 +7,10 @@
        http://www.springframework.org/schema/task
        http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <bean id="asyncTask" class="AsyncTask"/>
 
-    <task:executor id="myexecutor"/>
-    <task:annotation-driven executor="myexecutor"/>
+    <task:executor id="executor" pool-size="1"/>
+    <task:scheduler id="scheduler" pool-size="1"/>
+    <task:annotation-driven executor="executor" scheduler="scheduler"/>
+
+    <bean class="scheduled.ScheduledExample"/>
 </beans>
