@@ -2,6 +2,7 @@ package demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
@@ -24,7 +25,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version v1.0.1 2016-03-25 jdai@ created. <br/>
  */
 @SpringBootApplication
-@EnableScheduling()
+@EnableScheduling
+@EnableCaching
 public class FixedBootstrap implements SchedulingConfigurer {
 
     public static void main(String[] args) {

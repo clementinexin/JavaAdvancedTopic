@@ -1,10 +1,6 @@
 package cache;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * ClassName: Client <br/>
@@ -17,14 +13,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *         修改记录
  * @version v1.0.1 2016-03-25 jdai@ created. <br/>
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:cache.xml")
 public class Client {
 
     @Autowired
     Gateway gateway;
 
-    @Test
     public void test() {
 //        gateway.put(1,"ONE");
 //        gateway.put(2,"TWO");

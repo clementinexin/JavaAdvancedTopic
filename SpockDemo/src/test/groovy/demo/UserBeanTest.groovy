@@ -1,7 +1,4 @@
 package demo
-
-import org.junit.Test
-
 /**
  * ClassName: demo.UserBeanTest <br/>
  * Description: TODO <br/>
@@ -15,7 +12,6 @@ import org.junit.Test
  */
 class UserBeanTest {
 
-    @Test
     void "UseAndWith"() {
         def user = new UserBean
                 (

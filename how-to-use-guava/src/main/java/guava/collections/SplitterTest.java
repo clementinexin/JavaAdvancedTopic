@@ -3,14 +3,8 @@ package guava.collections;
 import com.google.common.base.Function;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
-import com.sun.istack.internal.Nullable;
-import org.junit.Test;
 
-import java.util.List;
-import java.util.Map;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.stream.Collectors;
 
 /**
  * ClassName: guava.collections.SplitterTest <br/>
@@ -25,18 +19,22 @@ import static org.junit.Assert.assertThat;
  */
 public class SplitterTest {
 
-    @Test
     public void test() {
 
 
-        System.out.println(Lists.transform(Lists.newArrayList(Splitter.on(",").omitEmptyStrings().split("2")), new Function<String, Integer>() {
-            @Nullable
+        System.out.println(Lists.transform(Lists.newArrayList(Splitter.on(",").omitEmptyStrings().split("1,2,3")), new Function<String, Integer>() {
             @Override
-            public Integer apply(@Nullable String input) {
+            public Integer apply(String input) {
                 return Integer.parseInt(input);
             }
         }));
 
+        System.out.println(Lists.newArrayList(Splitter.on(",").omitEmptyStrings().split("1,2,3"))
+                .stream()
+                .map(i -> Integer.parseInt(i))
+                .collect(Collectors.toList()));
+
+        /*
         String ids = "1,2,3";
         List list = Lists.newArrayList();
         System.out.println((Splitter.on(",").omitEmptyStrings().split(ids)).toString());
@@ -44,5 +42,9 @@ public class SplitterTest {
         assertThat(2, is(map.size()));
         assertThat("CA1501", is(map.get("flight")));
         assertThat("PEK", is(map.get("dept")));
+        */
+
     }
+
+
 }

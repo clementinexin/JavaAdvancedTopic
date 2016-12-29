@@ -1,0 +1,53 @@
+group 'java.learn.demo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+apply plugin: 'idea'
+sourceCompatibility = 1.8
+
+sourceSets {
+    main {
+        java.srcDirs = ['src/main/java']
+        resources.srcDirs = ['src/main/resources']
+    }
+
+    test {
+        java.srcDirs = ['src/test/unit/java']
+        resources.srcDirs = ['src/test/unit/resources', 'src/test/intg/resources']
+    }
+
+    integrationTest {
+        java.srcDirs = ['src/test/intg/java']
+    }
+}
+
+idea {
+    module {
+        testSourceDirs += sourceSets.integrationTest.java.srcDirs
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    testCompile("com.jayway.jsonpath:json-path")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    integrationTestCompile sourceSets.main.output
+    integrationTestCompile sourceSets.test.output
+    integrationTestCompile configurations.testCompile
+    integrationTestRuntime configurations.testRuntime
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task unitTest(dependsOn: test)
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+build.dependsOn integrationTest

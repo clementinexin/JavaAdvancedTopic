@@ -3,6 +3,7 @@ package json.parse;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 
 
 /**
@@ -10,7 +11,7 @@ import java.io.File;
  */
 public class GsonParser {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String s = FileUtils.readFileToString(new File("src/test/resources/flagship.json"));
 

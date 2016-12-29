@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -51,6 +53,9 @@ public class MyClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException {
+        System.out.println(MyClassLoader.class.getClassLoader());
+        System.out.println(MyClassLoader.class.getClassLoader().getParent());
+        System.out.println(MyClassLoader.class.getClassLoader().getParent().getParent());
         MyClassLoader loader1 = new MyClassLoader("loader1");
         System.out.println(loader1.getClass().getClassLoader());
         loader1.setPath("D:\\classloader\\exercise\\lib1\\");
@@ -78,6 +83,7 @@ public class MyClassLoader extends ClassLoader {
         object = clazz.newInstance();
         System.out.println(object.hashCode());
 
+
 //		Sample1 sample1 = (Sample1) object;
 //		System.out.println(sample1.v1);
         // 反射可以跨越loader域隔离的限制
@@ -86,6 +92,24 @@ public class MyClassLoader extends ClassLoader {
 //		System.out.println(field.getInt(object));
 //		test(loader2);
 //		test(loader3);
+    }
+
+
+    private static String printClassLoader(ClassLoader classLoader) throws IOException {
+        StringBuilder classLoaderDetail = new StringBuilder();
+        if (classLoader != null) {
+            classLoaderDetail.append("-----------------------\n");
+            classLoaderDetail.append(String.format("ClassLoader:%s\n", classLoader.toString()));
+            if (classLoader instanceof URLClassLoader) {
+                URLClassLoader loader = (URLClassLoader) classLoader;
+                for (URL url : loader.getURLs()) {
+                    classLoaderDetail.append(String.format("[%s]加载的包:%s\n", classLoader.toString(), url));
+                }
+            }
+            classLoaderDetail.append("-----------------------\n");
+            classLoaderDetail.append(printClassLoader(classLoader.getParent()));
+        }
+        return classLoaderDetail.toString();
     }
 
     public static void test(ClassLoader loader) {
