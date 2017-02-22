@@ -12,4 +12,10 @@
     <artifactId>groovyexample</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+        </dependency>
+    </dependencies>
 </project>
