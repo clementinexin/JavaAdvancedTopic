@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <description>thrift配置文件</description>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.demo.thrift"/>
+
+    <bean id="helloImpl" class="com.xxx.thrift.impl.HelloImpl"/>
+
+    <bean id="hello" class="com.demo.thrift.server.ThriftServerProxy">
+        <property name="port" value="9191"/>
+        <property name="serviceInterface" value="com.xxx.thrift.Hello"/>
+        <property name="serviceImplObject" ref="helloImpl"/>
+    </bean>
+</beans>
